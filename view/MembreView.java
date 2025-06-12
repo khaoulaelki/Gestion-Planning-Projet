@@ -32,17 +32,17 @@ public class MembreView extends JFrame {
         tachesButton.addActionListener(e -> {
             List<Task> taches = TaskService.getTachesForUser(username);
             JPanel panel = new JPanel(new GridLayout(taches.size(), 1, 5, 5));
-            String[] etats = {"En attente", "En cours", "Terminée"};
+            String[] statuts = {"à faire", "en cours", "terminé"};
 
             for (Task t : taches) {
                 JPanel ligne = new JPanel(new BorderLayout());
-                JLabel label = new JLabel(t.getDescription());
-                JComboBox<String> combo = new JComboBox<>(etats);
-                combo.setSelectedItem(t.getEtat());
+                JLabel label = new JLabel(t.getTitre());
+                JComboBox<String> combo = new JComboBox<>(statuts);
+                combo.setSelectedItem(t.getStatut());
 
                 combo.addActionListener(ev -> {
-                    t.setEtat((String) combo.getSelectedItem());
-                    TaskService.updateEtat(t.getId(), t.getEtat());
+                    t.setStatut((String) combo.getSelectedItem());
+                    TaskService.updateStatut(t.getId(), t.getStatut());
                 });
 
                 ligne.add(label, BorderLayout.WEST);
@@ -64,8 +64,8 @@ public class MembreView extends JFrame {
             JPanel panel = new JPanel(new GridLayout(planning.size(), 1, 5, 5));
 
             for (Task t : planning) {
-                String ligne = String.format("• %s | Échéance : %s | Priorité : %d",
-                        t.getDescription(), t.getDateEcheance(), t.getPriorite());
+                String ligne = String.format("• %s | Échéance : %s | Priorité : %s",
+                        t.getTitre(), t.getDateEcheance(), t.getPriorite());
                 panel.add(new JLabel(ligne));
             }
 

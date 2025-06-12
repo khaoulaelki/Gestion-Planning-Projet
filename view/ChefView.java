@@ -1,6 +1,10 @@
 package view;
 
+import view.ProjetView;
+import view.ProjetDashboard;
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class ChefView extends JFrame {
     public ChefView() {
@@ -10,17 +14,38 @@ public class ChefView extends JFrame {
         setLocationRelativeTo(null);
         setLayout(null);
 
+        // Bouton pour gérer les membres
         JButton gestionMembres = new JButton("Gestion des membres");
         gestionMembres.setBounds(100, 20, 200, 30);
         add(gestionMembres);
 
+        // Bouton pour gérer les projets
         JButton gestionProjets = new JButton("Gestion des projets");
         gestionProjets.setBounds(100, 60, 200, 30);
         add(gestionProjets);
 
+        // Bouton pour suivi et reporting
         JButton reporting = new JButton("Suivi et reporting");
         reporting.setBounds(100, 100, 200, 30);
         add(reporting);
+
+        // Action : ouvre l'interface de gestion de projet
+        gestionProjets.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new ProjetDashboard(); // Ouvre le tableau de bord des projets
+                dispose(); // (facultatif) ferme la fenêtre ChefView si tu veux la remplacer
+            }
+        });
+
+        // (Facultatif) Action : afficher "à implémenter" pour les autres
+        gestionMembres.addActionListener(e -> {
+            new MembreDashboard();
+        });
+
+        reporting.addActionListener(e -> {
+            JOptionPane.showMessageDialog(null, "Interface de suivi et reporting à implémenter.");
+        });
 
         setVisible(true);
     }

@@ -2,6 +2,7 @@ package view;
 
 import controller.LoginController;
 
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;          //permet de gérer les événements comme le clic sur un bouton.
 import java.awt.event.ActionListener;

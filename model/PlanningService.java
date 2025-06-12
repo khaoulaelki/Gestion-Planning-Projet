@@ -13,22 +13,22 @@ public class PlanningService {
         try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
 
-            stmt.setInt(1, idMembre);   //Remplace le ? de la requête SQL par la vraie valeur idMembre
+            stmt.setInt(1, idMembre);
             ResultSet rs = stmt.executeQuery();
 
-            while (rs.next()) {  //Parcourt chaque ligne du résultat retourné par la base de données
+            while (rs.next()) {
                 int id = rs.getInt("id");
                 String titre = rs.getString("titre");
-                String etat = rs.getString("etat");
+                String statut = rs.getString("statut");
                 String date = rs.getDate("date_echeance").toString();
-                int priorite = rs.getInt("priorite");
+                String priorite = rs.getString("priorite");
+                int idProjet = rs.getInt("id_projet");
 
-                planning.add(new Task(id, titre, etat, date, priorite)); //Crée un nouvel objet Task avec ces données, et l’ajoute à la liste planning
+                planning.add(new Task(id, titre, statut, date, priorite, idProjet, idMembre));
             }
 
         } catch (SQLException e) {
-            e.printStackTrace();   //Si une erreur SQL survient on affiche l’erreur dans la console.
-
+            e.printStackTrace();
         }
 
         return planning;
