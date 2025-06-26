@@ -5,6 +5,8 @@ import view.ProjetDashboard;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import view.ReportingDashboard;
+
 
 public class ChefView extends JFrame {
     public ChefView() {
@@ -44,7 +46,8 @@ public class ChefView extends JFrame {
         });
 
         reporting.addActionListener(e -> {
-            JOptionPane.showMessageDialog(null, "Interface de suivi et reporting à implémenter.");
+        	    new ReportingDashboard();
+
         });
 
         setVisible(true);

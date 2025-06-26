@@ -2,29 +2,23 @@ package model;
 
 public class Task {
     private int id;
-    private String titre;
-    private String statut; // "à faire", "en cours", "terminé"
+    private String description;
+    private String etat;
     private String dateEcheance;
-    private String priorite; // "basse", "moyenne", "haute"
-    private int idProjet;
-    private int idMembre;
+    private int priorite;
 
-    public Task(int id, String titre, String statut, String dateEcheance, String priorite, int idProjet, int idMembre) {
+    public Task(int id, String description, String etat, String dateEcheance, int priorite) {
         this.id = id;
-        this.titre = titre;
-        this.statut = statut;
+        this.description = description;
+        this.etat = etat;
         this.dateEcheance = dateEcheance;
         this.priorite = priorite;
-        this.idProjet = idProjet;
-        this.idMembre = idMembre;
     }
 
     public int getId() { return id; }
-    public String getTitre() { return titre; }
-    public String getStatut() { return statut; }
-    public void setStatut(String statut) { this.statut = statut; }
+    public String getDescription() { return description; }
+    public String getEtat() { return etat; }
+    public void setEtat(String etat) { this.etat = etat; }
     public String getDateEcheance() { return dateEcheance; }
-    public String getPriorite() { return priorite; }
-    public int getIdProjet() { return idProjet; }
-    public int getIdMembre() { return idMembre; }
+    public int getPriorite() { return priorite; }
 }

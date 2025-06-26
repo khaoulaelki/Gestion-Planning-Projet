@@ -3,19 +3,18 @@ package controller;
 import model.AuthService;
 import model.User;
 import view.MembreView;
-import view.ChefView;
-
+import view.ManagerView;
 
 import javax.swing.*;
 
 public class LoginController {
-    public void login(String username, String password) {  //fonction appelee lors du clic sur le bouton "se connecter"
-        User currentUser = AuthService.authenticate(username, password);    //Vérifie si les identifiants sont valides
+    public void login(String username, String password) {
+        User currentUser = AuthService.authenticate(username, password);
 
-        if (currentUser != null) {   //connexion reussie
-            switch (currentUser.getRole().toLowerCase()) {  //récupèrer le rôle de l’utilisateur
+        if (currentUser != null) {
+            switch (currentUser.getRole().toLowerCase()) {
                 case "chef":
-                    new ChefView();
+                    new ManagerView();
                     break;
                 case "membre":
                     new MembreView(currentUser);
@@ -25,7 +24,7 @@ public class LoginController {
                     break;
             }
         } else {
-            JOptionPane.showMessageDialog(null, "Identifiants incorrects", "Erreur", JOptionPane.ERROR_MESSAGE);  //Affiche des messages d’erreur
+            JOptionPane.showMessageDialog(null, "Identifiants incorrects", "Erreur", JOptionPane.ERROR_MESSAGE);
         }
     }
 }
