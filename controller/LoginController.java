@@ -3,7 +3,7 @@ package controller;
 import model.AuthService;
 import model.User;
 import view.MembreView;
-import view.ManagerView;
+import view.ChefView;
 
 import javax.swing.*;
 
@@ -14,7 +14,7 @@ public class LoginController {
         if (currentUser != null) {
             switch (currentUser.getRole().toLowerCase()) {
                 case "chef":
-                    new ManagerView();
+                    new ChefView();
                     break;
                 case "membre":
                     new MembreView(currentUser);

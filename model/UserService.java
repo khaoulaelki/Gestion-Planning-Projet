@@ -73,10 +73,6 @@ public class UserService {
         return membres;
     }
 
-    // Alias pour interface (si besoin)
-    public static List<User> getMembres() {
-        return getTousLesMembres();
-    }
 
     // Trouver un membre par son nom
     public static User findByNom(String nom) {
@@ -153,22 +149,6 @@ public class UserService {
     }
 
 
-    // Supprimer un membre (optionnel)
-    public static boolean deleteMembre(int id) {
-        String sql = "DELETE FROM membre WHERE id = ?";
-
-        try (Connection conn = DatabaseConnection.getConnection();
-             PreparedStatement stmt = conn.prepareStatement(sql)) {
-
-            stmt.setInt(1, id);
-            stmt.executeUpdate();
-            return true;
-
-        } catch (SQLException e) {
-            System.out.println("❌ Erreur suppression membre : " + e.getMessage());
-            return false;
-        }
-    }
     
     public static String findByNomId(int id) {
         String sql = "SELECT nom FROM membre WHERE id = ?";

@@ -35,7 +35,7 @@ public class ProjetActionsView extends JFrame {
         });
 
         btnTaches.addActionListener(e -> {
-            // TODO: remplacer par vraie gestion des tâches plus tard
+           
         	new ProjetTacheDashboard(projet.getId());
         	dispose();
 

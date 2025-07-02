@@ -32,8 +32,5 @@ public class MembreDashboard extends JFrame {
         setVisible(true);
     }
 
-    // Pour test
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(MembreDashboard::new);
-    }
+   
 }

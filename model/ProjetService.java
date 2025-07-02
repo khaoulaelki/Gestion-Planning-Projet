@@ -6,26 +6,7 @@ import java.util.List;
 
 public class ProjetService {
 
-	public static boolean ajouterProjet(Projet projet) {
-	    String sql = "INSERT INTO projet (nom, description, date_debut, date_fin, statut) VALUES (?, ?, ?, ?, ?)";
 
-	    try (Connection conn = DatabaseConnection.getConnection();
-	         PreparedStatement stmt = conn.prepareStatement(sql)) {
-
-	        stmt.setString(1, projet.getNom());
-	        stmt.setString(2, projet.getDescription());
-	        stmt.setDate(3, new java.sql.Date(projet.getDateDebut().getTime()));
-	        stmt.setDate(4, new java.sql.Date(projet.getDateFin().getTime()));
-	        stmt.setString(5, projet.getStatut());
-
-	        stmt.executeUpdate();
-	        return true;
-
-	    } catch (SQLException e) {
-	        System.out.println("❌ Erreur ajout projet : " + e.getMessage());
-	        return false;
-	    }
-	}
 
 
     // Vérifier si un projet existe déjà
@@ -91,7 +72,7 @@ public class ProjetService {
                 return new Projet(
                     rs.getInt("id"),
                     rs.getString("nom"),
-                    rs.getString("description"),  // correction ici
+                    rs.getString("description"),  
                     rs.getDate("date_debut"),
                     rs.getDate("date_fin"),
                     rs.getString("statut")
@@ -114,7 +95,7 @@ public class ProjetService {
              PreparedStatement stmt = conn.prepareStatement(sql)) {
 
             stmt.setString(1, projet.getNom());
-            stmt.setString(2, projet.getDescription()); // description ajoutée ici
+            stmt.setString(2, projet.getDescription()); 
             stmt.setDate(3, new java.sql.Date(projet.getDateDebut().getTime()));
             stmt.setDate(4, new java.sql.Date(projet.getDateFin().getTime()));
             stmt.setString(5, projet.getStatut());

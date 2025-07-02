@@ -35,7 +35,7 @@ public class FormulaireAjoutProjet extends JFrame {
             if (nom.isEmpty() || description.isEmpty() || d1.isEmpty() || d2.isEmpty()) {
                 JOptionPane.showMessageDialog(this, "Veuillez remplir tous les champs.");
                 return;
-            }
+            }             //Rendre tous les champs obligatoires
 
             try {
                 Date dateDebut = Date.valueOf(d1);
@@ -45,7 +45,7 @@ public class FormulaireAjoutProjet extends JFrame {
                     JOptionPane.showMessageDialog(this, "❌ Projet déjà existant !");
                 } else {
                     Projet p = new Projet(0, nom, description, dateDebut, dateFin, statut);
-                    int idProjet = ProjetService.ajouterProjetEtRetournerId(p); // méthode à ajouter
+                    int idProjet = ProjetService.ajouterProjetEtRetournerId(p); 
 
                     if (idProjet != -1) {
                         JOptionPane.showMessageDialog(this, "✅ Projet ajouté !");
@@ -71,7 +71,5 @@ public class FormulaireAjoutProjet extends JFrame {
         setVisible(true);
     }
 
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(FormulaireAjoutProjet::new);
-    }
+   
 }

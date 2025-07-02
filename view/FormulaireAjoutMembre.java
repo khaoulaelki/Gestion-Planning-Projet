@@ -61,8 +61,5 @@ public class FormulaireAjoutMembre extends JFrame {
         setVisible(true);
     }
 
-    // Pour test seul
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(FormulaireAjoutMembre::new);
-    }
+    
 }

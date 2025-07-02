@@ -1,6 +1,6 @@
 package view;
 
-import view.ProjetView;
+
 import view.ProjetDashboard;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -36,11 +36,11 @@ public class ChefView extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 new ProjetDashboard(); // Ouvre le tableau de bord des projets
-                dispose(); // (facultatif) ferme la fenêtre ChefView si tu veux la remplacer
+                dispose(); 
             }
         });
 
-        // (Facultatif) Action : afficher "à implémenter" pour les autres
+        
         gestionMembres.addActionListener(e -> {
             new MembreDashboard();
         });
