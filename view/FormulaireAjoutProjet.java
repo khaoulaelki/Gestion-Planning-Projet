@@ -15,7 +15,6 @@ public class FormulaireAjoutProjet extends JFrame {
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setLayout(new GridLayout(6, 2, 10, 10));
-
         // Champs de saisie
         JTextField txtNom = new JTextField();
         JTextField txtDescription = new JTextField();
